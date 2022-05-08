@@ -1,33 +1,16 @@
 # eclass_api
-
+---
 This is a client for the Open eClass Platform mobile API written in Dart inspired by https://github.com/amoraitis/EclassMobileApi
 
 ## Installation
-
+---
 ```console
 > dart pub add eclass_api
 ```
 
-## Features
-
-- **login({required String username, required String password})**: Get's user's token and saves it as a parameter inside the class instance for later use.
-
-- **getInfo()**: Returns information about the institute such as its name and its url.
-
-- **getCourses()**: If user is logged in, it returns a list of user's registered courses, otherwise, it returns a list of available courses in platform (opencourses).
-
-- **getTools({required String courseId})**: Returns the course tools for a specific course (i.e. the left menu). It works in the same way as the regular menu, i.e. if the user logged in is an instructor it returns 2 additional groups of tools (inactive and management).
-
-- **getPortfolio()**: Returns a list of user's registered courses along with their profile tools.
-
-- **getAnnouncements({required String courseId})**: Returns a list of course's announcements. Requires that the user is logged in.
-
-- **getMessages()**: Returns a list of user's messages.
-
-- **logout()**: Session destruction and logout.
 
 ## Getting started
-
+---
 Create an instance of EclassUser:
 
 ```dart
@@ -39,7 +22,7 @@ Future<void> main() async {
 ```
 
 ## Examples
-
+---
 Get institute's info:
 ```dart
 final info = await user.getInfo();
@@ -100,5 +83,15 @@ await user.logout();
 ```
 
 ## Additional information
-
+---
 For a more complete example look in the example folder.
+
+## Features
+---
+- Retrieve information about the institute, such as the name and the url.
+- Get user's registered courses.
+- Get the available courses in the platform (opencourses).
+- Get the course's tools.
+- Get user's portfolio courses and tools.
+- Get course's announcements.
+- Retrieve user's messages.
