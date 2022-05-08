@@ -1,4 +1,4 @@
-![logo_eclass](logo_eclass.png)
+![eclass_logo](logo_eclass.png)
 
 # eclass_api
 
