@@ -1,6 +1,6 @@
-/// Dart client for the Open eClass Platform mobile API
+/// https://github.com/georgiadisc/eclass_api
 ///
-/// To use, import package:eclass_api/eclass_api.dart.
+/// This is a client for the Open eClass Platform mobile API written in Dart inspired by https://github.com/amoraitis/EclassMobileApi
 library eclass_api;
 
 export 'src/identity/identity.dart';
