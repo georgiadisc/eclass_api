@@ -98,7 +98,10 @@ class EclassUser {
         'pass': password,
       },
     );
-    if (response.statusCode != 200 || response.body == 'FAILED') {
+    if (response.statusCode != 200 ||
+        response.body == 'FAILED' ||
+        response.body == 'USERNOTACTIVE' ||
+        response.body == 'NOTENABLED') {
       throw Exception('Failed to login.');
     }
     _token = response.body;
@@ -224,7 +227,8 @@ class EclassUser {
     return messages;
   }
 
-  Future<List<Announcement>> getAnnouncements({String? courseId}) async {
+  Future<List<Announcement>> getAnnouncements(
+      {required String courseId}) async {
     List<Announcement> announcements = [];
     Announcement announcement;
     XmlDocument xmlDecodedResponse;
@@ -342,7 +346,7 @@ class EclassUser {
     );
   }
 
-  Future<List<Tool>> getTools({String? courseId}) async {
+  Future<List<Tool>> getTools({required String courseId}) async {
     List<Tool> tools = [];
     Tool tool;
     final response = await _client.post(

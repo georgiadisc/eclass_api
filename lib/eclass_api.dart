@@ -1,6 +1,6 @@
 /// Dart client for the Open eClass Platform mobile API
 ///
-/// More dartdocs go here.
+/// To use, import package:eclass_api/eclass_api.dart.
 library eclass_api;
 
 export 'src/identity/identity.dart';

@@ -11,10 +11,7 @@ Future<void> main() async {
 
   // Logging in https://eclass.${user.instituteId}.gr...
   try {
-    await user.login(
-      username: 'username',
-      password: 'password',
-    );
+    await user.login(username: 'username', password: 'password');
   } on Exception {
     // Handle failed login request
   }
@@ -34,13 +31,13 @@ Future<void> main() async {
   }
 
   // Getting user's course's announcements...
-  final announcements = await user.getAnnouncements(courseId: 'DAI116');
+  final announcements = await user.getAnnouncements(courseId: 'courseId');
   // Announcements:
   for (final announcement in announcements) {
     print(announcement.toString());
   }
 
-  // Getting user's portfolio's courses and tools...
+  // Getting user's portfolio courses and tools...
   final portfolio = await user.getPortfolio();
   // Portfolio Courses:
   for (var course in portfolio.courses) {
@@ -63,7 +60,7 @@ Future<void> main() async {
   }
 
   // Getting course's tools...
-  final tools = await user.getTools(courseId: 'DAI116');
+  final tools = await user.getTools(courseId: 'courseId');
   // Tools:
   for (var tool in tools) {
     print(tool.toString());
