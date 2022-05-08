@@ -1,17 +1,16 @@
-## eclass_api
----
+![logo_eclass](logo_eclass.png)
+
+# eclass_api
 
 This is a client for the Open eClass Platform mobile API written in Dart inspired by https://github.com/amoraitis/EclassMobileApi
 
 ## Installation
----
 
 ```console
 > dart pub add eclass_api
 ```
 
 ## Features
----
 
 - **login({required String username, required String password})**: Get's user's token and saves it as a parameter inside the class instance for later use.
 
@@ -30,7 +29,6 @@ This is a client for the Open eClass Platform mobile API written in Dart inspire
 - **logout()**: Session destruction and logout.
 
 ## Getting started
----
 
 Create an instance of EclassUser:
 
@@ -43,7 +41,6 @@ Future<void> main() async {
 ```
 
 ## Examples
----
 
 Get institute's info:
 ```dart
@@ -105,6 +102,5 @@ await user.logout();
 ```
 
 ## Additional information
----
 
-For a more complete example look under the example folder.
+For a more complete example look in the example folder.
