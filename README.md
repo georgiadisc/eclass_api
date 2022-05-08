@@ -1,5 +1,3 @@
-![eclass_logo](logo_eclass.png)
-
 # eclass_api
 
 This is a client for the Open eClass Platform mobile API written in Dart inspired by https://github.com/amoraitis/EclassMobileApi
