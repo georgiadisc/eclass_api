@@ -5,7 +5,7 @@ import 'package:test/test.dart';
 
 void main() {
   group('EclassUser', () {
-    final user = EclassUser(instituteId: "uom");
+    final user = User(instituteId: "uom");
 
     test("Getting institute's info", () async {
       final info = await user.getInfo();

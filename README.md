@@ -14,15 +14,15 @@ This is a client for the Open eClass Platform mobile API written in Dart inspire
 
 - **getInfo()**: Returns information about the institute such as its name and its url.
 
-- **getCourses()**: If user is logged in, it returns the list of user's registered courses, otherwise, it returns a list of available courses in platform (opencourses).
+- **getCourses()**: If user is logged in, it returns a list of user's registered courses, otherwise, it returns a list of available courses in platform (opencourses).
 
-- **getTools({required String courseId})**: Returns the course tools for a specific course (ie the left menu). It works in the same way as the regular menu, ie if the user logged in is an instructor it returns 2 additional groups of tools (inactive and management).
+- **getTools({required String courseId})**: Returns the course tools for a specific course (i.e. the left menu). It works in the same way as the regular menu, i.e. if the user logged in is an instructor it returns 2 additional groups of tools (inactive and management).
 
-- **getPortfolio()**: Returns the list of user's registered courses along with their profile tools.
+- **getPortfolio()**: Returns a list of user's registered courses along with their profile tools.
 
-- **getAnnouncements({required String courseId})**: Returns the list of course's announcements. Requires that a user is logged in.
+- **getAnnouncements({required String courseId})**: Returns a list of course's announcements. Requires that the user is logged in.
 
-- **getMessages()**: Returns the list of user's messages.
+- **getMessages()**: Returns a list of user's messages.
 
 - **logout()**: Session destruction and logout.
 
@@ -31,10 +31,10 @@ This is a client for the Open eClass Platform mobile API written in Dart inspire
 Create an instance of EclassUser:
 
 ```dart
-import 'package:eclass_api/eclass_api.dart';
+import 'package:eclass_api/eclass_api.dart' as eclass;
 
 Future<void> main() async {
-  final user = EclassUser(instituteId: 'uom');
+  final user = eclass.User(instituteId: 'uom');
 }
 ```
 

@@ -1,8 +1,8 @@
-import 'package:eclass_api/eclass_api.dart';
+import 'package:eclass_api/eclass_api.dart' as eclass;
 
 Future<void> main() async {
   // Creating an instance of: EclassUser...
-  final user = EclassUser(instituteId: "instituteId");
+  final user = eclass.User(instituteId: "instituteId");
   // Institute: ${await user.institute}.
 
   // Getting institute's info

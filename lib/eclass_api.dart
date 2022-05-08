@@ -9,4 +9,4 @@ export 'src/announcements.dart';
 export 'src/portfolio.dart';
 export 'src/course.dart';
 export 'src/tool.dart';
-export 'src/eclass_user.dart';
+export 'src/user.dart';

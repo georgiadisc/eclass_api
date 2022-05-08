@@ -16,20 +16,24 @@ import 'tool.dart';
 
 typedef InstituteIdentifier = String;
 
-class EclassUser {
-  EclassUser({required this.instituteId});
+class User {
+  /// Creates a new instance of [User].
+  User({required this.instituteId});
 
+  /// The institute's identifier (e.g. 'uom').
   final InstituteIdentifier instituteId;
   String? _token;
   String? _uid;
 
   late final _client = http.Client();
 
+  /// Returns institute's name.
   Future<String> get institute async {
     final Identity identity = await getInfo();
     return identity.institute.name;
   }
 
+  /// Checks if [_token] is expired.
   Future<bool> get isTokenExpired async {
     final response = await _client.post(
       Uri.https(
@@ -46,6 +50,7 @@ class EclassUser {
     return response.body == 'EXPIRED';
   }
 
+  /// Returns information about the institute such as the [Institute.name] and the [Institute.url].
   Future<Identity> getInfo() async {
     Iterable<XmlElement> nodes;
     XmlElement node;
@@ -86,6 +91,7 @@ class EclassUser {
     );
   }
 
+  /// Gets [User]'s [_token] and saves it as a parameter inside the class instance for later use.
   Future<void> login(
       {required String username, required String password}) async {
     final response = await _client.post(
@@ -181,6 +187,7 @@ class EclassUser {
     return extractedSender;
   }
 
+  /// Returns a list of [User]'s messages.
   Future<List<Message>> getMessages() async {
     List<Message> messages = [];
     dynamic jsonDecodedResponse;
@@ -227,6 +234,7 @@ class EclassUser {
     return messages;
   }
 
+  /// Returns a list of [Course]'s announcements. Requires that the [User] is logged in.
   Future<List<Announcement>> getAnnouncements(
       {required String courseId}) async {
     List<Announcement> announcements = [];
@@ -295,6 +303,7 @@ class EclassUser {
     return announcements;
   }
 
+  /// Returns a list of [User]'s registered courses along with their profile tools.
   Future<Portfolio> getPortfolio() async {
     List<Course> courses = [];
     List<Tool> tools = [];
@@ -346,6 +355,7 @@ class EclassUser {
     );
   }
 
+  /// Returns the [Course] tools for a specific [Course] (i.e. the left menu). It works in the same way as the regular menu, i.e. if the [User] logged in is an instructor it returns 2 additional groups of tools (inactive and management).
   Future<List<Tool>> getTools({required String courseId}) async {
     List<Tool> tools = [];
     Tool tool;
@@ -379,6 +389,7 @@ class EclassUser {
     return tools;
   }
 
+  /// If [User] is logged in, it returns a list of [User]'s registered courses, otherwise, it returns a list of the available courses in the platform (opencourses).
   Future<List<Course>> getCourses() async {
     List<Course> courses = [];
     Course course;
@@ -410,6 +421,7 @@ class EclassUser {
     return courses;
   }
 
+  /// Session destruction and logout.
   Future<void> logout() async {
     final response = await _client.post(
       Uri.https(
