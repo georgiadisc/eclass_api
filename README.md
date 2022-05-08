@@ -1,16 +1,26 @@
 # eclass_api
----
+
 This is a client for the Open eClass Platform mobile API written in Dart inspired by https://github.com/amoraitis/EclassMobileApi
 
+## Features
+
+- Retrieve information about the institute, such as the name and the url.
+- Get user's registered courses.
+- Get the available courses in the platform (opencourses).
+- Get the course's tools.
+- Get user's portfolio courses and tools.
+- Get course's announcements.
+- Retrieve user's messages.
+
 ## Installation
----
+
 ```console
 > dart pub add eclass_api
 ```
 
 
 ## Getting started
----
+
 Create an instance of EclassUser:
 
 ```dart
@@ -22,7 +32,7 @@ Future<void> main() async {
 ```
 
 ## Examples
----
+
 Get institute's info:
 ```dart
 final info = await user.getInfo();
@@ -83,15 +93,6 @@ await user.logout();
 ```
 
 ## Additional information
----
+
 For a more complete example look in the example folder.
 
-## Features
----
-- Retrieve information about the institute, such as the name and the url.
-- Get user's registered courses.
-- Get the available courses in the platform (opencourses).
-- Get the course's tools.
-- Get user's portfolio courses and tools.
-- Get course's announcements.
-- Retrieve user's messages.
