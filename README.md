@@ -15,7 +15,7 @@ This is a client for the Open eClass Platform mobile API written in Dart inspire
 ## Installation
 
 ```console
-> dart pub add eclass_api
+dart pub add eclass_api
 ```
 
 
