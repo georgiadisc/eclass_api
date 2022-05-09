@@ -1,6 +1,6 @@
 name: eclass_api
 description: Dart client for the Open eClass Platform mobile API.
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/georgiadisc/eclass_api
 
 environment:
@@ -12,5 +12,4 @@ dev_dependencies:
 dependencies: 
   html: ^0.15.0
   http: ^0.13.4
-  logging: ^1.0.2
   xml: ^6.0.1

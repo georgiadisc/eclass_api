@@ -1,11 +1,11 @@
 import 'dart:developer';
 
-import 'package:eclass_api/eclass_api.dart';
+import 'package:eclass_api/eclass_api.dart' as eclass;
 import 'package:test/test.dart';
 
 void main() {
   group('EclassUser', () {
-    final user = User(instituteId: "uom");
+    final user = eclass.User(instituteId: "uom");
 
     test("Getting institute's info", () async {
       final info = await user.getInfo();
@@ -34,38 +34,38 @@ void main() {
     });
 
     test("Getting user's messages...", () async {
-      List<Message> messages = [];
+      List<eclass.Message> messages = [];
       try {
         messages = await user.getMessages();
       } catch (e) {
         // Can't retrieve user's messages because they are not logged in or the token has expired
       }
-      expect(messages, isA<List<Message>>());
+      expect(messages, isA<List<eclass.Message>>());
     });
 
     test("Getting user's course's announcements...", () async {
-      List<Announcement> announcements = [];
+      List<eclass.Announcement> announcements = [];
       try {
         announcements = await user.getAnnouncements(courseId: 'courseId');
       } catch (e) {
         // Can't retrieve course's announcements because user is not logged in or the token has expired.
       }
-      expect(announcements, isA<List<Announcement>>());
+      expect(announcements, isA<List<eclass.Announcement>>());
     });
 
     test("Getting platform's open courses...", () async {
-      List<Course> courses = [];
+      List<eclass.Course> courses = [];
       try {
         await user.logout();
         courses = await user.getCourses();
       } on Exception {
         log("There aren't any available courses on this platform.");
       }
-      expect(courses, isA<List<Course>>());
+      expect(courses, isA<List<eclass.Course>>());
     });
 
     test("Getting user's registered courses...", () async {
-      List<Course> courses = [];
+      List<eclass.Course> courses = [];
       try {
         courses = await user.getCourses();
       } on Exception {
@@ -75,17 +75,17 @@ void main() {
           log("There aren't any registered courses on this user.");
         }
       }
-      expect(courses, isA<List<Course>>());
+      expect(courses, isA<List<eclass.Course>>());
     });
 
     test("Getting course's tools...", () async {
-      List<Tool> tools = [];
+      List<eclass.Tool> tools = [];
       try {
         tools = await user.getTools(courseId: 'DAI104');
       } on Exception {
         log("There aren't any available courses on this platform.");
       }
-      expect(tools, isA<List<Tool>>());
+      expect(tools, isA<List<eclass.Tool>>());
     });
 
     test('Logging out of https://eclass.${user.instituteId}.gr...', () async {
